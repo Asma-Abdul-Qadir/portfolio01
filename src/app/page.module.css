@@ -1,3 +1,4 @@
+/* Main container */
 .main {
   display: flex;
   flex-direction: column;
@@ -5,8 +6,23 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background: linear-gradient(135deg, #3c7cbf, #ab72e6); /* Background Gradient */
+  animation: gradientBackground 10s ease-in-out infinite; /* Animation for the background */
 }
 
+@keyframes gradientBackground {
+  0% {
+    background: linear-gradient(135deg, #3c7cbf, #ab72e6);
+  }
+  50% {
+    background: linear-gradient(135deg, #f03a3a, #ff944d);
+  }
+  100% {
+    background: linear-gradient(135deg, #3c7cbf, #ab72e6);
+  }
+}
+
+/* Description section */
 .description {
   display: inherit;
   justify-content: inherit;
@@ -32,26 +48,24 @@
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Added soft shadow */
+  transition: all 0.3s ease-in-out;
+  font-size: 1.25rem; /* Increased font size */
+  font-weight: 600; /* Make it bolder for prominence */
 }
 
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
+.description p:hover {
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
-  width: var(--max-width);
-}
-
+/* Cards */
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
+  transition: background 200ms, border 200ms, box-shadow 200ms, transform 200ms;
 }
 
 .card span {
@@ -73,6 +87,19 @@
   text-wrap: balance;
 }
 
+
+.card:hover {
+  background: rgba(var(--card-rgb), 0.1);
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Adds elevation on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.card:hover span {
+  transform: translateX(4px);
+}
+
+/* Center section */
 .center {
   display: flex;
   justify-content: center;
@@ -103,30 +130,19 @@
   position: absolute;
   filter: blur(45px);
   transform: translateZ(0);
+  animation: glowAnimation 2s ease-in-out infinite alternate;
 }
 
-.logo {
-  position: relative;
-}
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+@keyframes glowAnimation {
+  0% {
+    filter: blur(45px) brightness(1);
   }
-
-  .card:hover span {
-    transform: translateX(4px);
+  100% {
+    filter: blur(60px) brightness(1.5);
   }
 }
 
-@media (prefers-reduced-motion) {
-  .card:hover span {
-    transform: none;
-  }
-}
-
-/* Mobile */
+/* Mobile styling */
 @media (max-width: 700px) {
   .content {
     padding: 4rem;
@@ -220,11 +236,39 @@
   }
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff6f61, #ff9e3d);
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #ff944d, #ff6f61);
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* Logo Glowing Animation */
+.logo {
+  position: relative;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
   }
-  to {
-    transform: rotate(0deg);
+  100% {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
   }
 }

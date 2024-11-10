@@ -1,0 +1,187 @@
+/* Main container for the About page with light background */
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers content vertically */
+  min-height: calc(100vh - 80px); /* Accounts for header height */
+  padding: 2rem;
+  background: url('/background1.jpg') center/cover no-repeat;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px; /* Space below a fixed header */
+}
+
+/* Overlay to make the background light with translucency */
+.aboutPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 0;
+}
+
+/* General section styling */
+.aboutSection,
+.educationSection,
+.certificationsSection {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Prominent About Me Heading */
+.aboutHeading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #5229a9;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3); /* Slightly darkened shadow */
+}
+
+/* Section headings for education and certifications */
+.sectionHeading {
+  font-size: 2rem;
+  color: #198585;
+  margin-bottom: 1rem;
+}
+
+/* Content wrapper to hold image and text side-by-side */
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Profile image container */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.profileImage {
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Text container */
+.textContainer {
+  flex: 2;
+  text-align: left;
+}
+
+/* About text paragraphs */
+.aboutText {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #222; /* Darker color for readability */
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Education and Certifications list styling */
+.educationList,
+.certificationList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+/* Education and Certification items */
+.educationItem,
+.certificationItem {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+  position: relative; /* Position for icon or badge */
+}
+
+/* Hover effect for education and certification items */
+.educationItem:hover,
+.certificationItem:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Lift the item slightly */
+}
+
+/* Title of the education and certification items */
+.educationItem h3,
+.certificationItem h3 {
+  font-size: 1.4rem;
+  color: #0f98be;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Description of the education and certification items */
+.educationItem p,
+.certificationItem p {
+  font-size: 1.1rem;
+  color: #333333;
+}
+
+/* Adding icons or badges (optional) */
+.educationItem::before,
+.certificationItem::before {
+
+  font-size: 2rem;
+  color: #0f98be;
+  position: absolute;
+  top: 50%;
+  left: -2rem; /* Positioning it outside the box */
+  transform: translateY(-50%);
+}
+
+/* Education and Certification items (hover effect) */
+.educationItem:hover::before,
+.certificationItem:hover::before {
+  color: #198585; /* Change color on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .aboutSection,
+  .educationSection,
+  .certificationsSection {
+    padding: 1.5rem;
+  }
+
+  .aboutHeading,
+  .sectionHeading {
+    font-size: 1.8rem;
+  }
+
+  .aboutText,
+  .educationItem h3,
+  .certificationItem h3 {
+    font-size: 1rem;
+  }
+
+  /* Adjusting the icon size for smaller screens */
+  .educationItem::before,
+  .certificationItem::before {
+    font-size: 1.5rem;
+  }
+}

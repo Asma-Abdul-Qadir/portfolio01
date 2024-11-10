@@ -1,0 +1,147 @@
+/* 3D effect container */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #4e54c8, #8f94fb); /* Gradient background */
+  animation: gradientBackground 5s ease infinite;
+  perspective: 1200px; /* Create a 3D perspective */
+  position: relative;
+}
+
+/* 3D Hover Effect */
+.textContainer {
+  flex: 1;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  transform-style: preserve-3d; /* Maintain 3D space for text */
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  animation: slideIn 1s ease-out;
+  transform: rotateY(0deg); /* Default 3D rotation */
+  transition: transform 0.3s ease-out; /* Smooth transition */
+}
+
+.heading span {
+  font-size: 2.5rem;
+  color: #ff6347;
+}
+
+/* Hover effect for heading */
+.hero:hover .heading {
+  transform: rotateY(15deg); /* Apply a 3D rotation */
+}
+
+/* Add 3D hover effect to the button */
+.btn {
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  animation: buttonPulse 2s infinite ease-in-out;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero:hover .btn {
+  transform: translateZ(10px) rotateY(10deg); /* 3D effect on hover */
+}
+
+/* 3D image effect */
+.heroImage {
+  border-radius: 50%;
+  border: 5px solid #ff6347;
+  animation: zoomIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-out;
+}
+
+.hero:hover .heroImage {
+  transform: rotateY(15deg) scale(1.1); /* Add 3D rotation and scale effect */
+}
+
+/* Image container */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gradient animation */
+@keyframes gradientBackground {
+  0% {
+    background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+  }
+  50% {
+    background: linear-gradient(to bottom right, #8f94fb, #4e54c8);
+  }
+  100% {
+    background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+  }
+}
+
+/* Fade In Effect for Text */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide In Effect for Heading */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Zoom In Effect for Image */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Button Pulse Animation */
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .heroImage {
+    width: 300px;
+    height: 300px;
+  }
+}
