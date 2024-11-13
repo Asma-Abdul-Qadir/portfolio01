@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import styles from "../skills/skills.module.css";
+import styles from "./skills.module.css";
 import Head from "next/head";
 
 const skills = [

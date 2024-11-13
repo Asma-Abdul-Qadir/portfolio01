@@ -3,7 +3,7 @@
 "use client";
 import { useState } from "react";
 import { MdMenu } from "react-icons/md";
-import styles from "./header.module.css";
+import styles from "./Header.module.css";
 import Link from "next/link";
 
 function Header() {

@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import styles from "../about/about.module.css";
+import styles from "./about.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import profilepic from "../../../public/heropic.jpg";
