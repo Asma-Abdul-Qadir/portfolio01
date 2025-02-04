@@ -1,7 +1,8 @@
 "use client";
-import React from 'react';
+import React from "react";
 import styles from "./skills.module.css";
 import Head from "next/head";
+import Image from "next/image";
 
 const skills = [
   { name: "HTML", color: "#FF4B4B", icon: "/html.jpeg" },
@@ -9,15 +10,17 @@ const skills = [
   { name: "JavaScript", color: "#FFC107", icon: "/javascript.png" },
   { name: "Next.js", color: "#000000", icon: "/next.svg" },
   { name: "TypeScript", color: "#3178C6", icon: "/typescript.png" },
-  // Add more skills as needed
 ];
 
 const Skill = () => {
   return (
     <div className={styles.skillPage}>
       <Head>
-        <title>My Skills | Asma's Portfolio</title>
-        <meta name="description" content="Explore the skills and expertise of Asma." />
+        <title>My Skills | Asma&apos;s Portfolio</title>
+        <meta
+          name="description"
+          content="Explore the skills and expertise of Asma."
+        />
       </Head>
 
       <section className={styles.skillSection}>
@@ -26,11 +29,13 @@ const Skill = () => {
           {skills.map((skill, index) => (
             <div key={index} className={styles.skillCard}>
               <div className={styles.skillIconContainer}>
-                <img
+                <Image
                   src={skill.icon}
                   alt={`Icon representing ${skill.name}`}
                   className={styles.skillIcon}
-                  loading="lazy"
+                  width={64} // Adjust size as needed
+                  height={64} // Adjust size as needed
+                  priority={index < 3} // Prioritize first few images
                 />
                 <div
                   className={styles.skillLevelCircle}
@@ -41,7 +46,8 @@ const Skill = () => {
               </div>
               <h3 className={styles.skillName}>{skill.name}</h3>
               <p className={styles.skillDescription}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, delectus!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur, delectus!
               </p>
             </div>
           ))}

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./Components/Home.module.css"; 
-import Header from "./Components/Header";
+import Header from "./components/Header";
 import { Typewriter } from "react-simple-typewriter";
 import Head from "next/head";
 import Link from 'next/link';
@@ -10,8 +10,11 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title>Welcome to Asma's Portfolio</title>
-        <meta name="description" content="Asma's personal portfolio showcasing web development and UI/UX design skills." />
+        <title>Welcome to Asma&apos;s Portfolio</title>
+        <meta 
+          name="description" 
+          content="Asma&apos;s personal portfolio showcasing web development and UI/UX design skills." 
+        />
       </Head>
       <Header />
       <section className={styles.hero}>
@@ -36,7 +39,6 @@ const Home = () => {
         </div>
 
         <div className={styles.imageContainer}>
-        
           <Image
             src="/heropic.jpg" 
             alt="Asma"
